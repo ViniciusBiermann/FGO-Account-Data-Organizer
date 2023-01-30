@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+<div class="container-md mt-5">
+    <div class="card text-bg-dark">
+        <div class="card-header">Register</div>
+        <div class="card-body">
+
+            {% if msg %}
+            <div class="alert alert-danger" role="alert">{{msg}}</div>
+            {% endif %}
+
+            <form method="post" action="/auth/register" class="needs-validation my-3" novalidate>
+
+                <div class="row my-4">
+                    <div class="form-group col-md-6">
+                        <div class="form-floating">
+                            <input type="email" class="form-control rounded-end" id="emailInput" name="email"
+                                   placeholder="your@email.com" aria-describedby="validationContent" required>
+                            <label for="emailInput">Email</label>
+                            <div id="validationEmail" class="invalid-feedback">
+                                Please inform a valid email.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control rounded-end" id="usernameInput" name="username"
+                                   placeholder="your username" aria-describedby="validationContent" required>
+                            <label for="usernameInput">Username</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-4">
+                    <div class="form-floating">
+                        <input type="password" class="form-control rounded-end" id="passwordInput" name="password"
+                               placeholder="your password" aria-describedby="validationContent" required>
+                        <label for="passwordInput">Password</label>
+                        <div id="validationPassword" class="invalid-feedback">
+                            Please inform a password.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-4">
+                    <div class="form-floating">
+                        <input type="password" class="form-control rounded-end" id="verifyPasswordInput"
+                               name="password2"
+                               placeholder="your password" aria-describedby="validationContent" required>
+                        <label for="verifyPasswordInput">Verify Password</label>
+                        <div id="validationPassword2" class="invalid-feedback">
+                            Please inform a password.
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" id="submit" name="submit" class="btn btn-primary my-2" value="register">
+                    Sign In!
+                </button>
+
+            </form>
+        </div>
+        <div class="card-footer text-muted">
+            <a href="/auth">Already have an account? Click here to login!</a>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', path='/fgo/js/script.js') }}"></script>
+
+{% endblock %}
