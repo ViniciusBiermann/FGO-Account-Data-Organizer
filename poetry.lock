@@ -292,7 +292,7 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "sqlalchemy"
-version = "2.0.0"
+version = "2.0.1"
 description = "Database Abstraction Library"
 category = "main"
 optional = false
@@ -306,7 +306,7 @@ typing-extensions = ">=4.2.0"
 aiomysql = ["greenlet (!=0.4.17)", "aiomysql"]
 aiosqlite = ["greenlet (!=0.4.17)", "aiosqlite", "typing-extensions (!=3.10.0.1)"]
 asyncio = ["greenlet (!=0.4.17)"]
-asyncmy = ["greenlet (!=0.4.17)", "asyncmy (>=0.2.3,!=0.2.4)"]
+asyncmy = ["greenlet (!=0.4.17)", "asyncmy (>=0.2.3,!=0.2.4,!=0.2.6)"]
 mariadb_connector = ["mariadb (>=1.0.1,!=1.1.2,!=1.1.5)"]
 mssql = ["pyodbc"]
 mssql_pymssql = ["pymssql"]

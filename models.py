@@ -27,6 +27,11 @@ class Masters(Base):
     download_date = Column(Date)
     last_access = Column(DateTime)
     master_level = Column(Integer)
+    saint_quartz = Column(Integer)
+    paid_saint_quartz = Column(Integer)
+    rare_prisms = Column(Integer)
+    unregistered_spirit_origin = Column(Integer)
+    recovery_number = Column(String)
 
     owner = relationship('Users', back_populates='masters')
     servants = relationship('MasterServants')
@@ -43,7 +48,7 @@ class Servants(Base):
 
 
 class MasterServants(Base):
-    __tablename__ = 'masterservants'
+    __tablename__ = 'master_servants'
 
     id = Column(Integer, primary_key=True, index=True)
     master_id = Column(Integer, ForeignKey('masters.id'))
