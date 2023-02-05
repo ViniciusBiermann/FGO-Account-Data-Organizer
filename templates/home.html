@@ -2,4 +2,68 @@
 
 {% block content %}
 
+<div class="container mt-5">
+    <div id="rarityFilterComponent" class="col-2 rarity-filter">
+        <label id="rarityFilterLabel" for="rarityFilter">Rarity:</label>
+        <select id="rarityFilter" class="form-control">
+            <option value="">Any</option>
+            <option value="★">★</option>
+            <option value="★★">★★</option>
+            <option value="★★★">★★★</option>
+            <option value="★★★★">★★★★</option>
+            <option value="★★★★★">★★★★★</option>
+        </select>
+    </div>
+    <div id="servantClassFilterComponent" class="col-2 servant-class-filter">
+        <label id="servantClassFilterLabel" for="servantClassFilter">Class:</label>
+        <select id="servantClassFilter" class="form-control">
+            <option value="">Any</option>
+        </select>
+    </div>
+    <div class="card text-bg-dark text-center">
+        <div class="card-header">Master Servants</div>
+        <div class="card-body">
+            <!--            <h5 class="card-title">List of your Masters</h5>-->
+            <!--            <p class="card-text">Selection of your masters.</p>-->
+
+            <table id="servants_table" class="table table-dark table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Rarity</th>
+                    <th scope="col">Level</th>
+                    <th scope="col">Skills</th>
+                    <th scope="col">Summon Date</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Mash</td>
+                    <td>Shielder</td>
+                    <td>★★★★</td>
+                    <td>80</td>
+                    <td>1-1-1</td>
+                    <td>2022-10-01</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>SEIBA</td>
+                    <td>Saber</td>
+                    <td>★★★★★</td>
+                    <td>90</td>
+                    <td>10-8-10</td>
+                    <td>2022-08-01</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <a class="btn btn-primary" href="add-todo">Add a new Todo!</a>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

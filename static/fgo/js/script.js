@@ -1,3 +1,17 @@
+$(document).ready( function () {
+    var table = $('#servants_table').DataTable({
+    dom: '<"top"lf>rt<"bottom"ip><"clear">',
+    dom: '<"toolbar">f',
+    order: [[6, 'asc']],
+    pagingType: 'full_numbers',
+    paging: false,
+    });
+
+    $('div.toolbar').html($('#servantClassFilterComponent'));
+    $('div.toolbar').html($('#rarityFilterComponent'));
+} );
+
+
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
     'use strict'

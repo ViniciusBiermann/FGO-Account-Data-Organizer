@@ -21,3 +21,7 @@ body {
 .strike-through-td {
     text-decoration: line-through;
 }
+
+.dataTables_wrapper .dataTables_filter {
+    float:left
+}
