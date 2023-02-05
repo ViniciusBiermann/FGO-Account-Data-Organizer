@@ -60,6 +60,10 @@ def verify_password(plain_password: str, hashed_password: str):
 def authenticate_user(username: str, password: str, db):
     user = db.query(models.Users).filter(models.Users.username == username).first()
     if not user or not verify_password(password, user.password):
+        user = db.query(models.Users).filter(models.Users.email == username).first()
+        if not user or not verify_password(password, user.password):
+            return None
+    elif not verify_password(password, user.password):
         return None
     return user
 
@@ -138,7 +142,7 @@ async def register(request: Request):
 @router.post('/register', response_class=HTMLResponse)
 async def register_user(request: Request, email: str = Form(), username: str = Form(), password: str = Form(), password2: str = Form(),
                         db: Session = Depends(get_db)):
-    message = 'Invalid registration request'
+    message = 'Invalid registration request. An account with email or username already exists.'
     response_template = 'register.html'
     if password == password2:
         validation_1 = db.query(models.Users).filter(models.Users.username == username).first()
