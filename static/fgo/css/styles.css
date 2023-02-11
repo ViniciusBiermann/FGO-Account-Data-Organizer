@@ -28,7 +28,8 @@ body {
 
 .rarity_button {
     border: none;
-    background-color: transparent
+    background: none;
+    font-size: 12pt;
 }
 
 .rarity_button:hover {
@@ -43,3 +44,21 @@ body {
     color: yellow !important;
 }
 
+.servant_class_button {
+    border: none;
+    background: none;
+    box-shadow: none;
+}
+
+.servant_class_button:focus .servant_class_button.focus
+ .servant_class_button.active:focus .servant_class_button.active.focus{
+    outline-width: 2px;
+    outline-style: solid;
+    outline-color: green;
+}
+
+
+.classIconFilter {
+    height: 40px;
+    width: 40px;
+}

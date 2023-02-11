@@ -8,12 +8,7 @@ $(document).ready( function () {
     responsive: true
     });
 
-    var rarityIndex = 0;
-      $("#servants_table th").each(function (i) {
-        if ($($(this)).html() == "Rarity") {
-          rarityIndex = i; return false;
-        }
-      });
+    var rarityIndex = getTableColumnIndex('Rarity');
 
     $.fn.dataTable.ext.search.push(
         function (settings, data, dataIndex) {
@@ -27,6 +22,20 @@ $(document).ready( function () {
       );
 } );
 
+function getTableColumnIndex(columnName) {
+    columnIndex = 0;
+    $("#servants_table th").each(function (i) {
+        if ($($(this)).html() == columnName) {
+          columnIndex = i; return false;
+        }
+      });
+    return columnIndex;
+};
+
+function redrawTable() {
+    $('#servants_table').DataTable().draw();
+};
+
 function getToggledServantRarities() {
     var values = []
     for (var i = 1; i < 6; i++) {
@@ -36,9 +45,9 @@ function getToggledServantRarities() {
        }
     }
     return values
-}
+};
 
-var buttonClick = function()
+var rarityButtonClick = function()
 {
     if (this.classList.contains('active')) {
         this.style.color = 'yellow'
@@ -46,17 +55,45 @@ var buttonClick = function()
         this.style.color = 'grey'
     }
     $('#servants_table').DataTable().draw();
-}
-
-function redrawTable() {
-    $('#servants_table').DataTable().draw();
 };
 
-document.getElementById('rarityButton1').onclick = buttonClick;
-document.getElementById('rarityButton2').onclick = buttonClick;
-document.getElementById('rarityButton3').onclick = buttonClick;
-document.getElementById('rarityButton4').onclick = buttonClick;
-document.getElementById('rarityButton5').onclick = buttonClick;
+
+document.getElementById('rarityButton1').onclick = rarityButtonClick;
+document.getElementById('rarityButton2').onclick = rarityButtonClick;
+document.getElementById('rarityButton3').onclick = rarityButtonClick;
+document.getElementById('rarityButton4').onclick = rarityButtonClick;
+document.getElementById('rarityButton5').onclick = rarityButtonClick;
+
+var classButtonClick = function()
+{
+    if (this.classList.contains('active')) {
+        this.style.filter = 'grayscale(0) brightness(1)';
+        this.style.border = 'none';
+        this.style.background = 'none';
+        this.style.boxShadow = 'none';
+    } else {
+        this.style.filter = 'grayscale(100) brightness(0.6)';
+        this.style.border = 'none';
+        this.style.background = 'none';
+        this.style.boxShadow = 'none';
+    }
+};
+
+document.getElementById('classButton1').onclick = classButtonClick;
+document.getElementById('classButton2').onclick = classButtonClick;
+document.getElementById('classButton3').onclick = classButtonClick;
+document.getElementById('classButton4').onclick = classButtonClick;
+document.getElementById('classButton5').onclick = classButtonClick;
+document.getElementById('classButton6').onclick = classButtonClick;
+document.getElementById('classButton7').onclick = classButtonClick;
+document.getElementById('classButton8').onclick = classButtonClick;
+document.getElementById('classButton9').onclick = classButtonClick;
+document.getElementById('classButton10').onclick = classButtonClick;
+document.getElementById('classButton11').onclick = classButtonClick;
+document.getElementById('classButton12').onclick = classButtonClick;
+document.getElementById('classButton13').onclick = classButtonClick;
+document.getElementById('classButton14').onclick = classButtonClick;
+
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
