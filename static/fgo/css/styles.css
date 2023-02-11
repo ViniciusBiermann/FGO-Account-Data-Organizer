@@ -23,5 +23,23 @@ body {
 }
 
 .dataTables_wrapper .dataTables_filter {
-    float:left
+    float: left
 }
+
+.rarity_button {
+    border: none;
+    background-color: transparent
+}
+
+.rarity_button:hover {
+    color: white !important;
+}
+
+.rarity_button.active {
+    color: yellow;
+}
+
+.rarity_button.active:hover {
+    color: yellow !important;
+}
+
