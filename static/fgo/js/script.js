@@ -9,12 +9,15 @@ $(document).ready( function () {
     });
 
     var rarityIndex = getTableColumnIndex('Rarity');
+    var servantClassIndex = getTableColumnIndex('Class');
 
     $.fn.dataTable.ext.search.push(
         function (settings, data, dataIndex) {
-          var rarities_toggled = getToggledServantRarities()
+          var rarities_toggled = getToggledServantRarities();
           var rarityColumn = data[rarityIndex];
-          if (rarities_toggled.includes(rarityColumn)) {
+          var classesToggled = getToggledServantClasses();
+          var classColumn = data[servantClassIndex];
+          if (rarities_toggled.includes(rarityColumn) && classesToggled.includes(classColumn)) {
             return true;
           }
           return false;
@@ -40,6 +43,17 @@ function getToggledServantRarities() {
     var values = []
     for (var i = 1; i < 6; i++) {
        var button = $('#rarityButton' + i)
+       if (button.hasClass('active')) {
+            values.push(button.val())
+       }
+    }
+    return values
+};
+
+function getToggledServantClasses() {
+    var values = []
+    for (var i = 1; i < 15; i++) {
+       var button = $('#classButton' + i)
        if (button.hasClass('active')) {
             values.push(button.val())
        }
@@ -77,6 +91,7 @@ var classButtonClick = function()
         this.style.background = 'none';
         this.style.boxShadow = 'none';
     }
+    $('#servants_table').DataTable().draw();
 };
 
 document.getElementById('classButton1').onclick = classButtonClick;

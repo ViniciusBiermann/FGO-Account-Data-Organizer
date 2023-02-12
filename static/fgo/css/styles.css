@@ -27,9 +27,10 @@ body {
 }
 
 .rarity_button {
+    font-size: 12pt;
     border: none;
     background: none;
-    font-size: 12pt;
+    box-shadow: none;
 }
 
 .rarity_button:hover {
@@ -40,23 +41,23 @@ body {
     color: yellow;
 }
 
+.rarity_button:focus-visible {
+  outline: 1px solid yellow;
+  outline-offset: 3px;
+}
+
 .rarity_button.active:hover {
     color: yellow !important;
 }
 
 .servant_class_button {
-    border: none;
     background: none;
-    box-shadow: none;
 }
 
-.servant_class_button:focus .servant_class_button.focus
- .servant_class_button.active:focus .servant_class_button.active.focus{
-    outline-width: 2px;
-    outline-style: solid;
-    outline-color: green;
+.servant_class_button:focus-visible {
+  outline: 1px solid yellow;
+  outline-offset: 3px;
 }
-
 
 .classIconFilter {
     height: 40px;
