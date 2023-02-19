@@ -51,7 +51,9 @@ body {
 }
 
 .servant_class_button {
+    border: medium none;
     background: none;
+    box-shadow: none;
 }
 
 .servant_class_button:focus-visible {

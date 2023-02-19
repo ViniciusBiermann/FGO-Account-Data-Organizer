@@ -108,26 +108,3 @@ document.getElementById('classButton11').onclick = classButtonClick;
 document.getElementById('classButton12').onclick = classButtonClick;
 document.getElementById('classButton13').onclick = classButtonClick;
 document.getElementById('classButton14').onclick = classButtonClick;
-
-
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-    'use strict'
-
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-     var forms = document.querySelectorAll('.needs-validation')
-//    var forms = $("form");
-
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-        .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-
-                form.classList.add('was-validated');
-            }, false)
-        })
-})()

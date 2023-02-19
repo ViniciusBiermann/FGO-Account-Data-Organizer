@@ -18,7 +18,8 @@ class Users(Base):
 class Masters(Base):
     __tablename__ = 'masters'
 
-    id = Column(String, unique=True, primary_key=True, index=True)
+    id = Column(Integer, unique=True, primary_key=True, index=True)
+    in_game_id = Column(String)
     owner_user_id = Column(Integer, ForeignKey('users.id'))
     name = Column(String)
     birthday = Column(String)

@@ -6,7 +6,7 @@ from fastapi import FastAPI, Depends
 from starlette.staticfiles import StaticFiles
 from starlette import status
 from starlette.responses import RedirectResponse
-from routers import home, auth
+from routers import home, auth, master
 
 app = FastAPI()
 
@@ -31,6 +31,7 @@ async def root():
 
 app.include_router(home.router)
 app.include_router(auth.router)
+app.include_router(master.router)
 
 
 @app.get('/updateServants')

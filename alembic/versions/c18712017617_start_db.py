@@ -29,7 +29,8 @@ def upgrade() -> None:
                     sa.Column('rarity', sa.Integer())
                     )
     op.create_table('masters',
-                    sa.Column('id', sa.String(), nullable=False, primary_key=True, index=True),
+                    sa.Column('id', sa.Integer(), nullable=False, primary_key=True, index=True),
+                    sa.Column('in_game_id', sa.String(), nullable=False),
                     sa.Column('owner_user_id', sa.Integer()),
                     sa.Column('name', sa.String()),
                     sa.Column('birthday', sa.Date()),

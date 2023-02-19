@@ -3,7 +3,13 @@
 {% block content %}
 
 <div class="container-md mt-5">
-    <div class="card text-bg-dark">
+    <div class="card text-bg-dark my-5">
+        <div class="card-header text-center">Master</div>
+        <div class="card-body">
+            <a class="btn btn-primary" href="/masters/new-master">New Master</a>
+        </div>
+    </div>
+    <div class="card text-bg-dark my-5">
         <div class="card-header text-center">Master Servants</div>
         <div class="card-body">
             <!--            <h5 class="card-title">List of your Masters</h5>-->
@@ -213,4 +219,8 @@
     </div>
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', path='/fgo/js/home_script.js') }}"></script>
 {% endblock %}

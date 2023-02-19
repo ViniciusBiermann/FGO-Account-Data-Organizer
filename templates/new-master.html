@@ -1,0 +1,171 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="container-md mt-5">
+    <div class="card text-bg-dark">
+        <div class="card-header">New Master</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-5">
+
+                </div>
+                <div class="col-md-7">
+                    <form method="post" action="/masters/new-master" class="needs-validation my-3" novalidate>
+
+                        <div class="row my-3">
+                            <label for="inGameIdInput">Account ID</label>
+                            <div class="col-auto">
+                                <input type="text" class="form-control rounded-end bg-dark text-white"
+                                       id="inGameIdInput" name="in_game_id" placeholder="In Game ID"
+                                       aria-describedby="validationContent" required>
+                            </div>
+                        </div>
+
+                        <div class="row my-3">
+                            <label for="masterNameInput">Master Name:</label>
+                            <div class="col-auto">
+                                <input type="text" class="form-control rounded-end bg-dark text-white"
+                                       id="masterNameInput" name="master_name" placeholder="Master Name"
+                                       aria-describedby="validationContent" required>
+                            </div>
+                        </div>
+
+                        <div class="row my-3">
+                            <label for="masterGenderInput">Gender:</label>
+                            <div id="masterGenderInput" class="btn-group col-auto" role="group"
+                                 aria-label="Basic radio toggle button group">
+                                <input type="radio" class="btn-check" name="gender" id="btnradio1"
+                                       autocomplete="off" value="female" checked>
+                                <label class="btn btn-outline-secondary text-white" for="btnradio1">Female</label>
+
+                                <input type="radio" class="btn-check" name="gender" id="btnradio2"
+                                       autocomplete="off" value="male">
+                                <label class="btn btn-outline-secondary text-white" for="btnradio2">Male</label>
+                            </div>
+                        </div>
+
+                        <div class="row my-3">
+                            <label for="monthDiv">Birthday:</label>
+                            <div class="col-4" id="monthDiv">
+                                <div class="form-floating">
+                                    <select class="form-select bg-dark text-white" id="month"
+                                            aria-label="Select month" name="birthday_month">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                    <label for="month">Month</label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-floating">
+                                    <select id="day" class="form-select bg-dark text-white"
+                                            aria-label="Select day" name="birthday_day"></select>
+                                    <label for="day">Day</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row my-3">
+                            <label for="masterLevelInput">Master Level:</label>
+                            <div class="col-auto">
+                                <input class="form-control bg-dark text-white" type="number" id="masterLevelInput"
+                                       name="master_level" min="1">
+                            </div>
+                        </div>
+
+                        <div class="row my-3">
+                            <label for="saintQuartzInput">Saint Quartz:</label>
+                            <div class="col-auto">
+                                <input class="form-control bg-dark text-white" type="number" id="saintQuartzInput"
+                                       name="saint_quartz" min="0">
+                            </div>
+                        </div>
+
+                        <div class="row my-3">
+                            <label for="paidSaintQuartzInput">Paid Saint Quartz:</label>
+                            <div class="col-auto">
+                                <input class="form-control bg-dark text-white" type="number"
+                                       id="paidSaintQuartzInput"
+                                       name="paid_saint_quartz" min="0">
+                            </div>
+                        </div>
+
+                        <div class="row my-3">
+                            <label for="rarePrismsInput">Rare Prisms:</label>
+                            <div class="col-auto">
+                                <input class="form-control bg-dark text-white" type="number" id="rarePrismsInput"
+                                       name="rare_prisms" min="0">
+                            </div>
+                        </div>
+
+                        <div class="row my-3">
+                            <label for="spiritOriginInput">Unregistered Spirit Origin:</label>
+                            <div class="col-auto">
+                                <input class="form-control bg-dark text-white" type="number" id="spiritOriginInput"
+                                       name="spirit_origin" min="0">
+                            </div>
+                        </div>
+
+                        <div class="row my-3">
+                            <label for="downloadInput">Download date:</label>
+                            <div class="col-auto">
+                                <input type="date" class="form-control rounded-end bg-dark text-white"
+                                       id="downloadInput" name="download" aria-describedby="validationContent" required>
+                            </div>
+                        </div>
+
+                        <div class="row my-3">
+                            <label for="lastAccessInput">Last Access:</label>
+                            <div class="col-auto">
+                                <input type="datetime-local" class="form-control rounded-end bg-dark text-white"
+                                       id="lastAccessInput" name="last_access" aria-describedby="validationContent"
+                                       required>
+                            </div>
+                        </div>
+
+                        <div class="row my-3">
+                            <label for="deviceInput">Device:</label>
+                            <div class="col-auto">
+                                <input type="text" class="form-control rounded-end bg-dark text-white"
+                                       id="deviceInput" name="device" placeholder="Device"
+                                       aria-describedby="validationContent" required>
+                            </div>
+                        </div>
+
+                        <div class="row my-3">
+                            <label for="recoveryInput">Recovery Number:</label>
+                            <div class="col-auto">
+                                <input type="text" class="form-control rounded-end bg-dark text-white"
+                                       id="recoveryInput" name="recovery_number" placeholder="Recovery Number"
+                                       aria-describedby="validationContent" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mt-3">Add new master</button>
+                        <a type="button" class="btn btn-danger mt-3 ms-2" href="/home">Cancel</a>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', path='/fgo/js/new_master_script.js') }}"></script>
+<script src="{{ url_for('static', path='/fgo/js/form_validator_script.js') }}"></script>
+{% endblock %}
