@@ -39,4 +39,4 @@ async def read_all_by_user(request: Request, db: Session = Depends(get_db)):
     masters = get_user_masters(user.get('id'), db)
     if not masters:
         return RedirectResponse(url='/masters/new-master', status_code=status.HTTP_302_FOUND)
-    return templates.TemplateResponse('home.html', {'request': request, 'masters': masters, 'servants': 'servants'})
+    return templates.TemplateResponse('home.html', {'request': request, 'masters': masters, 'servants': []})

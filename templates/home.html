@@ -6,15 +6,21 @@
     <div class="card text-bg-dark my-5">
         <div class="card-header text-center">Master</div>
         <div class="card-body">
+            <div class="row">
+                <select name="masters" id="mastersSelect">
+                    {% for master in masters %}
+                    <option value="{{master.id}}">{{master.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
             <a class="btn btn-primary" href="/masters/new-master">New Master</a>
+
         </div>
     </div>
     <div class="card text-bg-dark my-5">
         <div class="card-header text-center">Master Servants</div>
         <div class="card-body">
-            <!--            <h5 class="card-title">List of your Masters</h5>-->
-            <!--            <p class="card-text">Selection of your masters.</p>-->
-
             <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
                 <button id='rarityButton1' type="button" class="btn btn-outline-dark btn-sm active rarity_button"
                         data-bs-toggle="button" aria-pressed="true" value="★">★
@@ -35,90 +41,15 @@
 
             <div>
                 <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
-                    <button id='classButton1' type="button"
+                    {% for servant_class in ['Saber', 'Archer', 'Lancer', 'Rider', 'Caster', 'Assassin', 'Berserker',
+                    'Ruler', 'Avenger', 'Moon Cancer', 'Alter Ego', 'Foreigner', 'Pretender', 'Shielder'] %}
+                    <button id='classButton{{loop.index}}' type="button"
                             class="btn btn-outline-dark btn-sm active servant_class_button" aria-pressed="true"
-                            data-bs-toggle="button" value="Saber">
-                        <img src="{{ url_for('static', path='/fgo/images/saber.webp') }}" alt=""
-                             class="classIconFilter">
+                            data-bs-toggle="button" value="{{servant_class}}">
+                        <img src="{{ url_for('static', path='/fgo/images/' + servant_class|lower|replace(' ','') + '.webp') }}"
+                             alt="" class="classIconFilter">
                     </button>
-                    <button id='classButton2' type="button"
-                            class="btn btn-outline-dark btn-sm active servant_class_button" aria-pressed="true"
-                            data-bs-toggle="button" value="Archer">
-                        <img src="{{ url_for('static', path='/fgo/images/archer.webp') }}" alt=""
-                             class="classIconFilter">
-                    </button>
-                    <button id='classButton3' type="button"
-                            class="btn btn-outline-dark btn-sm active servant_class_button" aria-pressed="true"
-                            data-bs-toggle="button" value="Lancer">
-                        <img src="{{ url_for('static', path='/fgo/images/lancer.webp') }}" alt=""
-                             class="classIconFilter">
-                    </button>
-                    <button id='classButton4' type="button"
-                            class="btn btn-outline-dark btn-sm active servant_class_button" aria-pressed="true"
-                            data-bs-toggle="button" value="Rider">
-                        <img src="{{ url_for('static', path='/fgo/images/rider.webp') }}" alt=""
-                             class="classIconFilter">
-                    </button>
-                    <button id='classButton5' type="button"
-                            class="btn btn-outline-dark btn-sm active servant_class_button" aria-pressed="true"
-                            data-bs-toggle="button" value="Caster">
-                        <img src="{{ url_for('static', path='/fgo/images/caster.webp') }}" alt=""
-                             class="classIconFilter">
-                    </button>
-                    <button id='classButton6' type="button"
-                            class="btn btn-outline-dark btn-sm active servant_class_button" aria-pressed="true"
-                            data-bs-toggle="button" value="Assassin">
-                        <img src="{{ url_for('static', path='/fgo/images/assassin.webp') }}" alt=""
-                             class="classIconFilter">
-                    </button>
-                    <button id='classButton7' type="button"
-                            class="btn btn-outline-dark btn-sm active servant_class_button" aria-pressed="true"
-                            data-bs-toggle="button" value="Berserker">
-                        <img src="{{ url_for('static', path='/fgo/images/berserker.webp') }}" alt=""
-                             class="classIconFilter">
-                    </button>
-                    <button id='classButton8' type="button"
-                            class="btn btn-outline-dark btn-sm active servant_class_button" aria-pressed="true"
-                            data-bs-toggle="button" value="Ruler">
-                        <img src="{{ url_for('static', path='/fgo/images/ruler.webp') }}" alt=""
-                             class="classIconFilter">
-                    </button>
-                    <button id='classButton9' type="button"
-                            class="btn btn-outline-dark btn-sm active servant_class_button" aria-pressed="true"
-                            data-bs-toggle="button" value="Avenger">
-                        <img src="{{ url_for('static', path='/fgo/images/avenger.webp') }}" alt=""
-                             class="classIconFilter">
-                    </button>
-                    <button id='classButton10' type="button"
-                            class="btn btn-outline-dark btn-sm active servant_class_button" aria-pressed="true"
-                            data-bs-toggle="button" value="Moon Cancer">
-                        <img src="{{ url_for('static', path='/fgo/images/mooncancer.webp') }}" alt=""
-                             class="classIconFilter">
-                    </button>
-                    <button id='classButton11' type="button"
-                            class="btn btn-outline-dark btn-sm active servant_class_button" aria-pressed="true"
-                            data-bs-toggle="button" value="Alter Ego">
-                        <img src="{{ url_for('static', path='/fgo/images/alterego.webp') }}" alt=""
-                             class="classIconFilter">
-                    </button>
-                    <button id='classButton12' type="button"
-                            class="btn btn-outline-dark btn-sm active servant_class_button" aria-pressed="true"
-                            data-bs-toggle="button" value="Foreigner">
-                        <img src="{{ url_for('static', path='/fgo/images/foreigner.webp') }}" alt=""
-                             class="classIconFilter">
-                    </button>
-                    <button id='classButton13' type="button"
-                            class="btn btn-outline-dark btn-sm active servant_class_button" aria-pressed="true"
-                            data-bs-toggle="button" value="Pretender">
-                        <img src="{{ url_for('static', path='/fgo/images/pretender.webp') }}" alt=""
-                             class="classIconFilter">
-                    </button>
-                    <button id='classButton14' type="button"
-                            class="btn btn-outline-dark btn-sm active servant_class_button" aria-pressed="true"
-                            data-bs-toggle="button" value="Shielder">
-                        <img src="{{ url_for('static', path='/fgo/images/shielder.webp') }}" alt=""
-                             class="classIconFilter">
-                    </button>
+                    {% endfor %}
                 </div>
             </div>
 
@@ -138,6 +69,22 @@
                     </thead>
 
                     <tbody>
+                    <!--                    {% for servant in servants %}-->
+                    <!--                    <tr>-->
+                    <!--                        <td>{{servant.servant_id}}</td>-->
+                    <!--                        <td>{{servant.name}}</td>-->
+                    <!--                        <td>{{servant.servant_class}}</td>-->
+                    <!--                        <td>{{servant.rarity}}</td>-->
+                    <!--                        <td>{{servant.level}}</td>-->
+                    <!--                        <td>{{servant.skill_1_level}}-{{servant.skill_2_level}}-{{servant.skill_3_level}}</td>-->
+                    <!--                        <td>{{servant.summon_date}}</td>-->
+                    <!--                        <td>-->
+                    <!--                            <button onclick="window.location.href='#'" type="button"-->
+                    <!--                                    class="btn btn-sm btn-info">Edit-->
+                    <!--                            </button>-->
+                    <!--                        </td>-->
+                    <!--                    </tr>-->
+                    <!--                    {% endfor %}-->
                     <tr>
                         <td>1</td>
                         <td>Mash</td>
@@ -214,7 +161,7 @@
             </div>
 
 
-            <a class="btn btn-primary" href="add-todo">Add a new Servant!</a>
+            <a class="btn btn-primary" href="/servants/new-servant">Add a new Servant!</a>
         </div>
     </div>
 </div>
