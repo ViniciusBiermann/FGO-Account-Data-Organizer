@@ -28,6 +28,29 @@ def get_db():
         db.close()
 
 
+@router.get('/{master_id}')
+async def get_master_by_id(request: Request, master_id: int, db: Session = Depends(get_db)):
+    user = await get_current_user(request)
+    if user is None:
+        return None
+    master = db.query(models.Masters).filter(models.Masters.owner_user_id == int(user.get('id'))).filter(
+        models.Masters.id == master_id).first()
+    return master
+
+
+@router.get('/{master_id}/servants')
+async def get_master_servants(request: Request, master_id: int, db: Session = Depends(get_db)):
+    user = await get_current_user(request)
+    if user is None:
+        return None
+    master = db.query(models.Masters).filter(models.Masters.owner_user_id == int(user.get('id'))).filter(
+        models.Masters.id == master_id).first()
+    if master is None:
+        return None
+    servants = master.servants
+    return servants
+
+
 @router.get('/new-master', response_class=HTMLResponse)
 async def add_new_master(request: Request):
     user = await get_current_user(request)

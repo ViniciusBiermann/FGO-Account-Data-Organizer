@@ -2,7 +2,7 @@ $(document).ready( function () {
     var table = $('#servants_table').DataTable({
     dom: '<"top"lf>rt<"bottom"ip><"clear">',
     dom: '<"toolbar">f',
-    order: [[6, 'asc']],
+    order: [[8, 'asc']],
     pagingType: 'full_numbers',
     paging: false,
     responsive: true
@@ -108,3 +108,28 @@ document.getElementById('classButton11').onclick = classButtonClick;
 document.getElementById('classButton12').onclick = classButtonClick;
 document.getElementById('classButton13').onclick = classButtonClick;
 document.getElementById('classButton14').onclick = classButtonClick;
+
+function change_servant_table_body(servants_list) {
+    var table = $('#servants_table').DataTable();
+    table.clear()
+    servants_list.forEach(function(servant){
+        let common_data = servant.servant_data;
+        table.row.add(
+            [common_data.id, common_data.name, common_data.servant_class, '★'.repeat(common_data.rarity), servant.level,
+            servant.bond_level, servant.np_level,
+            servant.skill_1_level + '-' + servant.skill_2_level + '-' + servant.skill_3_level, servant.summon_date,
+            '<button onclick="window.location.href=' + "'#'\"" + " type='button' class='btn btn-sm btn-info'>Edit</button>"]
+        )
+    });
+    table.draw()
+};
+
+$('#mastersSelect').on('change', function() {
+    selectedMaster = this.value;
+    fetch('http://127.0.0.1:8000/masters/' + selectedMaster)
+    .then((response) => response.json());
+
+    fetch('http://127.0.0.1:8000/masters/' + selectedMaster + '/servants')
+    .then((response) => response.json())
+    .then((data) => change_servant_table_body(data));
+}).trigger('change');

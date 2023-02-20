@@ -62,3 +62,5 @@ class MasterServants(Base):
     skill_3_level = Column(Integer)
     summon_date = Column(Date)
     is_favourite = Column(Boolean)
+
+    servant_data = relationship("Servants", lazy="joined", innerjoin=True)

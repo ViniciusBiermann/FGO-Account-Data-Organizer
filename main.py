@@ -61,6 +61,8 @@ async def update_servants_table(db: Session = Depends(get_db)):
         servant_model = db.query(models.Servants).filter(models.Servants.id == servant_id).first()
         if servant_model is None:
             servant_model = models.Servants()
+        if servant_id == 1:
+            servant['rarity'] = 4
         servant_model.id = servant_id
         servant_model.name = servant.get('name')
         servant_model.name_jp = servant.get('originalName')
