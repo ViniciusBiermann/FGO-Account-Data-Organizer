@@ -7,6 +7,10 @@ body {
     color: whitesmoke;
 }
 
+#masterInfo {
+    font-size: 12pt;
+}
+
 .form-control {
     color: whitesmoke;
     background-color: #343a40;

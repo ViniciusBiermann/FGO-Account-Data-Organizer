@@ -111,9 +111,21 @@ document.getElementById('classButton14').onclick = classButtonClick;
 
 
 function changeCurrentMasterInfo(masterInfo) {
-    var element = $('#masterInfo');
-    var html = "<h4>" + masterInfo.name + "</h4>";
-//    element.html(html);
+    $('#masterName').html(masterInfo.name);
+    $('#masterID').html(masterInfo.in_game_id);
+    $('#masterLevel').html(masterInfo.master_level);
+    $('#masterBDay').html(masterInfo.birthday);
+    $('#masterGender').html(masterInfo.gender);
+    $('#masterLogins').html(masterInfo.total_logins);
+    $('#masterDevice').html(masterInfo.device);
+    $('#masterDownloadDate').html(masterInfo.download_date);
+    $('#masterLastAccess').html(masterInfo.last_access);
+    $('#masterSQ').html(masterInfo.saint_quartz);
+    $('#masterPaidSQ').html(masterInfo.paid_saint_quartz);
+    $('#masterRarePrisms').html(masterInfo.rare_prisms);
+    $('#masterManaPrisms').html(masterInfo.mana_prisms);
+    $('#masterUnregisteredSpiritOrigin').html(masterInfo.unregistered_spirit_origin);
+    $('#masterRecoveryNumber').html(masterInfo.recovery_number);
 }
 
 function changeServantTableBody(servants_list) {
