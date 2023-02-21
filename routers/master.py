@@ -44,9 +44,11 @@ async def create_master(request: Request,
                         birthday_month: int = Form(),
                         birthday_day: int = Form(),
                         master_level: int = Form(),
+                        total_logins: int = Form(),
                         saint_quartz: int = Form(),
                         paid_saint_quartz: int = Form(),
                         rare_prisms: int = Form(),
+                        mana_prisms: int = Form(),
                         spirit_origin: int = Form(),
                         download: str = Form(),
                         last_access: str = Form(),
@@ -63,9 +65,11 @@ async def create_master(request: Request,
     master_model.gender = gender
     master_model.birthday = f"{birthday_day}/{birthday_month}"
     master_model.master_level = master_level
+    master_model.total_logins = total_logins
     master_model.saint_quartz = saint_quartz
     master_model.paid_saint_quartz = paid_saint_quartz
     master_model.rare_prisms = rare_prisms
+    master_model.mana_prisms = mana_prisms
     master_model.unregistered_spirit_origin = spirit_origin
     master_model.download_date = datetime.strptime(download, '%Y-%m-%d').date()
     master_model.last_access = datetime.strptime(last_access, '%Y-%m-%dT%H:%M')
