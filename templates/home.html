@@ -7,7 +7,7 @@
         <div class="card-header text-center">Master</div>
         <div class="card-body">
             <div class="row">
-                <select name="masters" id="mastersSelect">
+                <select class="bg-dark text-white" name="masters" id="mastersSelect">
                     {% for master in masters %}
                     <option value="{{master.id}}">{{master.name}}</option>
                     {% endfor %}
@@ -15,11 +15,60 @@
             </div>
 
             <div class="row">
+                <div class="col-auto"></div>
+                <div class="col-auto">
+                    <div class="row m-3" id="masterInfo">
+                        <h4>Master Name</h4>
+                        <div class="row row-cols-4">
+                            <div class="col my-1">
+                                <label>ID: <span id="masterID">ID</span></label>
+                            </div>
+                            <div class="col my-1">
+                                <label>Logins: <span id="masterLogins">Logins</span></label>
+                            </div>
+                            <div class="col my-1">
+                                <label>Saint Quartz: <span id="masterSQ">SQ</span></label>
+                            </div>
+                            <div class="col my-1">
+                                <label>Un Spirit Origin: <span id="masterUnregisteredSpiritOrigin">Unr Sprt Orgn</span></label>
+                            </div>
+                            <div class="col my-1">
+                                <label>Level: <span id="masterLevel">Level</span></label>
+                            </div>
+                            <div class="col my-1">
+                                <label>Device: <span id="masterDevice">Device</span></label>
+                            </div>
+                            <div class="col my-1">
+                                <label>Paid Saint Quartz: <span id="masterPaidSQ">SQ</span></label>
+                            </div>
+                            <div class="col my-1">
+                                <label>Recovery Number: <span id="masterRecoveryNumber">Recovery</span></label>
+                            </div>
+                            <div class="col my-1">
+                                <label>Birthday: <span id="masterBDay">Birthday</span></label>
+                            </div>
+                            <div class="col my-1">
+                                <label>Download: <span id="masterDownloadDate">Download Date</span></label>
+                            </div>
+                            <div class="col my-1">
+                                <label>Rare Prisms: <span id="masterRarePrisms">RP</span></label>
+                            </div>
+                            <div class="col my-1"></div>
+                            <div class="col my-1">
+                                <label>Gender: <span id="masterGender">Gender</span></label>
+                            </div>
+                            <div class="col my-1">
+                                <label>Last Access: <span id="masterLastAccess">Last Access</span></label>
+                            </div>
+                            <div class="col my-1">
+                                <label>Mana Prisms: <span id="masterManaPrisms">MP</span></label>
+                            </div>
+                        </div>
 
+                    </div>
+                </div>
             </div>
-
             <a class="btn btn-primary" href="/masters/new-master">New Master</a>
-
         </div>
     </div>
     <div class="card text-bg-dark my-5">

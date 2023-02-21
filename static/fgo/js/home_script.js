@@ -109,9 +109,16 @@ document.getElementById('classButton12').onclick = classButtonClick;
 document.getElementById('classButton13').onclick = classButtonClick;
 document.getElementById('classButton14').onclick = classButtonClick;
 
-function change_servant_table_body(servants_list) {
+
+function changeCurrentMasterInfo(masterInfo) {
+    var element = $('#masterInfo');
+    var html = "<h4>" + masterInfo.name + "</h4>";
+//    element.html(html);
+}
+
+function changeServantTableBody(servants_list) {
     var table = $('#servants_table').DataTable();
-    table.clear()
+    table.clear();
     servants_list.forEach(function(servant){
         let common_data = servant.servant_data;
         table.row.add(
@@ -127,9 +134,10 @@ function change_servant_table_body(servants_list) {
 $('#mastersSelect').on('change', function() {
     selectedMaster = this.value;
     fetch('http://127.0.0.1:8000/masters/' + selectedMaster)
-    .then((response) => response.json());
+    .then((response) => response.json())
+    .then((data) => changeCurrentMasterInfo(data));
 
     fetch('http://127.0.0.1:8000/masters/' + selectedMaster + '/servants')
     .then((response) => response.json())
-    .then((data) => change_servant_table_body(data));
+    .then((data) => changeServantTableBody(data));
 }).trigger('change');
